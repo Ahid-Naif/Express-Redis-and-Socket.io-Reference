@@ -37,8 +37,22 @@ var zrevrangebyscore = (key, max, min) => {
     });
 };
 
+var aroundLoc = (long, lat, miles) => {
+    return new Promise((resolve, reject) => {
+      client.georadius('places', long, lat, miles, 'mi', 'WITHDIST', promiser(resolve, reject));
+    });
+  };
+  
+var aroundSB = (miles) => {
+    return new Promise((resolve, reject) => {
+      client.georadiusbymember('places', "South Bend", miles, 'mi', 'WITHDIST', promiser(resolve, reject));
+    });
+};
+
 module.exports.get              = get;
 module.exports.hgetall          = hgetall;
 module.exports.lrange           = lrange;
 module.exports.zrevrangebyscore = zrevrangebyscore;
+module.exports.aroundLoc        = aroundLoc;
+module.exports.aroundSB         = aroundSB;
 module.exports.client           = client
