@@ -1,0 +1,21 @@
+# set, get, incr
+set test_key "test value"
+get test_key
+
+set user:1 test
+get user:1
+
+set counter 1
+incr counter
+get counter
+
+exists user:1
+exists no
+
+# expire stuff
+expire user:1 1
+get user:1
+
+set test_key test EX 120
+# can use setex
+ttl test_key

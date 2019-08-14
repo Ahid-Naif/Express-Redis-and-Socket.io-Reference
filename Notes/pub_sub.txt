@@ -1,0 +1,6 @@
+# subscribe
+subscribe user:create
+psubscribe user:*
+
+# publish
+publish test "Is anyone there?"

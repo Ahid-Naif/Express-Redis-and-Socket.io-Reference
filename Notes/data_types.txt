@@ -1,0 +1,59 @@
+# strings
+set user:1:username josh
+get user:1:username
+
+# hashes
+hset hash_key field value
+hsetnx hash_key new_field other
+
+hmset user:1 first_name Joshua last_name Johanan
+hgetall user:1
+
+hget hash_key field
+
+hgetall hash_key
+
+hkeys hash_key
+
+# lists
+lpush user:1:profile_views 5
+lpush user:1:profile_views 10
+lpush user:1:profile_views 15
+lpush user:1:profile_views 18
+
+rpush dogs fido
+lpop dogs
+
+lrange user:1:profile_views 0 -1
+lrange user:1:profile_views 0 2
+
+# sets
+sadd sdogs dexter
+sadd sdogs dexter
+sadd sdogs gizmo
+
+
+smembers sdogs
+sismember sdogs dexter
+sismember sdogs nothing
+
+srem sdogs dexter
+
+sadd dogs2 fido
+sadd dogs2 dexter
+
+sdiff sdogs dogs2
+sinter sdogs dogs2
+sunion sdogs dogs2
+
+# sorted sets
+zadd logins 500 1
+zadd logins 600 15
+zadd logins 650 18
+
+zrange logins 0 -1
+
+zadd logins 550 20
+
+zrange logins 0 -1 WITHSCORES
+zrevrange logins 0 -1
